@@ -1,0 +1,36 @@
+[OPTIONS]
+Default topic=index.html
+Title=Boa Constructor Help
+Compiled file=apphelp.chm
+Index file=apphelp.hhk
+Contents file=apphelp.hhc
+Default Window=wxHelp
+Full-text search=Yes
+Compatibility=1.1
+
+[WINDOWS]
+wxHelp=,"apphelp.hhc","apphelp.hhk","index.html",,,,,,0x2420,,0x380e,,,,,0,,,
+
+[FILES]
+Debugger.html
+Designer.html
+Editor.html
+Help.html
+index.html
+Inspector.html
+Keys.html
+Palette.html
+CommandLine.html
+ComponentNotes.html
+Explorer.html
+ExtendingBoa.html
+Glossary.html
+LayoutAnchors.html
+MixingSource.html
+NonASCII.html
+Philosophy.html
+Preferences.html
+RemainingMilestones.html
+ShellIntegration.html
+WindowLayout.html
+Zope.html

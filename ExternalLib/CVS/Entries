@@ -1,0 +1,22 @@
+/.cvsignore/1.1/Sun Mar 24 02:21:28 2002//
+/BasicAuthTransport.py/1.3/Tue Mar  4 18:29:25 2003//
+/ConfigParser.py/1.3/Sun Dec  1 00:09:43 2002//
+/Cyclops.py/1.2/Wed Jun 13 21:11:08 2001//
+/PythonInterpreter.py/1.8/Mon Oct 13 08:24:06 2003//
+/Signature.py/1.3/Fri Jan  3 02:56:10 2003//
+/__init__.py/1.2/Wed Jun 13 21:11:08 2001//
+/babeliser.py/1.1/Tue Sep  4 23:45:33 2001//
+/ddeconn.py/1.1/Wed Sep  5 02:03:09 2001//
+/flagart.py/1.1/Tue Jun 26 22:55:29 2007//
+/langlistctrl.py/1.3/Wed Jul  4 20:52:07 2007//
+/ndiff.py/1.2/Wed Jun 13 21:11:08 2001//
+/pychecker_custom.py/1.1/Fri Jan  3 02:59:48 2003//
+/pylint.py/1.1/Tue Sep  4 23:45:33 2001//
+/pyparsing.py/1.2/Fri Mar 18 12:09:25 2005//
+/reindent.py/1.3/Mon Aug 11 15:22:49 2003//
+/tarfile.py/1.1/Mon Aug 11 15:28:18 2003//
+/wx25upgrade.py/1.13/Thu Sep 28 12:07:37 2006//
+/xmlrpclib.py/1.6/Mon Aug 11 15:27:15 2003//
+/xmlrpcserver.py/1.2/Sat Jul 28 20:26:07 2001//
+/zipfile.py/1.2/Wed Jun 13 21:11:08 2001//
+D

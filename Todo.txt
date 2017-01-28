@@ -1,0 +1,265 @@
+To do
+-----
+
+Features
+--------
+
+* Maker sizer usage less cumbersome
+  * Auto-adding controls as sizer items if Sizer is set on window
+    * Issues: determining nested sizers
+  * Nested tree view
+* Non modal Process dialogs 
+* Multiple help windows
+
+Future features
+------------------
+
+* Multi language support
+* I18n support
+* DB aware framework
+* Actions
+
+
+Framework Extensions
+--------------------
+
+* Plug-in / IDE framework
+  Move import level framework registration into a register() function
+  (ugly because an import is not enough to setup a valid runtime
+   nice because module can be re-registered and plugins can be independent
+   of the framework)
+* Allow submenus under File and Edit
+* Multi-language support
+  * 1st phase
+    * Define resource files for menus and and menu context help (for i18n)
+
+      format: 
+      [ClassName]
+      method=('menu', 'OnMethod', 'image/path.png', 'shortcut', 'description')
+
+    * Message config files for message boxes and info
+
+  * 2nd phase
+    * Designer integrated multi-language support for custome frames/dialogs
+      * Possibly with gettext/_() format in generated source.
+
+  * 3rd phase
+    * Whenever actions happen, combining most of phases 1+2 with multi-language 
+      support in actions.
+
+
+Missing wxPython features
+-------------------------
+
+* wxArtProvider
+* wxAcceleratorTable
+* More wxPython.lib controls
+* improved wxApp support (properties and events)
+* Two step Create and extra style flags
+
+
+High level features
+-------------------
+
+* Improve code completion
+* Correct Syntax Error highlighing
+* Better default property handling, possibly cutting some cruft from
+  generated source by omitting unchanged defaults.
+
+Detail
+------
+
+Documentation
+- Tutorial
+ - Debugging section
+ - Image handling
+ - Sizers
+- Link to method docs from selected property
+
+
+Editor
+- More actions should use the progress bar
+- Use Idle extensions
+  - The Tkinter editor control interface sucks.
+  - As a test, converted the IDLE extension FormatParagraph. See Plug-ins.
+    It was quite simple, only had to change the tkinter text control code
+    to wxSTC code and write the Boa IDE hooks to publish it under 
+    Py:Edit->Format paragraph
+
+- Add toggleable action type
+- Look into possibly extending wxApp's stdio redirection to speak to boa
+- Goto CVS file from Open Module
+
+
+Designer
+- Optional default parameters
+  - Sizers need this very much for pos and size
+- Make generated source less verbose
+  - Can ids be optional (except for menus, tools?)
+- Multi-select, when moving not all tags snap togeter
+- Correctly ordered parameters
+- Multi-select/multi-edit, showing a filtering of only properties that can 
+  be edited en mass
+- Add Palette as Popup menu. e.g. New->Container/Layout->wxPanel
+  - Bind Inser to Popup New menu
+- Custom classes management
+
+Companions
+- Better initial sizes for a few controls
+
+Inspector
+- Enable/Disable toolbar buttons depending on state
+  or only show applicable buttons (not enough space for all btns)
+- Action to turn property into special attribute property
+
+
+Help
+- wx methods help: From Inspector while on property
+
+Documentation View
+- Options: 
+  - Don't print empty sections (no __doc__ ) 
+  - Don't print _private methods
+
+Explore View
+- Move method up/down actions
+- Switch to explorer view in the class and focused on the
+  current method
+
+Tree Views
+- Remember which nodes are open and reopen after refreshing
+
+Zope
+- CMF, Plone
+
+Debugging
+- Preferences to
+  - Optionally break in with the debugger on top level GUI exceptions using
+    sys.excepthook
+  - Specify modules and packages which the debugger should not step into
+
+
+Explorer
+- Improve recent files
+- Simple caching for slow connections
+- Synch Explorer operations like moving files around with
+  any open applications
+- Connect opened module if possible to an open app module
+- Key mappings!
+- Delete directories.
+- Improve/Extend the File Dialog enough to stop dependency on the Explorer.
+  - E.g. Preference management and Zope support through the File Dialog/Inspector
+
+CVS
+- Conflict resolution editor integration
+  - Accept, Reject
+- Update/Commit/Diff from SourceView
+- Visual interface to set options
+- Update open modules if a cvs operation modified an
+  open module
+- Import needs to setup masks for recognised file types
+- Run in background/non non modal
+- Refesh action
+- Colour indication for folders which contain modified files
+                            or
+- CVS Reports, like search results
+
+
+App
+- App may not have wxDialog as main frame because an app object
+  does not quit with dialog as main frame.
+
+GTK
+- Incremental typing lookup on wxListCtrl, hopefully in a base class high up :)
+
+Distutils
+- More extension develpoment support
+- Attempt to write an InnoSetup distultils target.
+
+
+
+Documentation
+-
+
+Code changes
+- Better support (awareness) for unicode
+  - replace type('') testing with isinstance(x, StringTypes)
+
+More filetypes-
+- BAT files on windows ?
+
+
+
+*
+Roadmap
+-------
+
+Boa 1.0
+- wxPython IDE with visual frame designer
+- Working debugger
+- Layout editors
+- Integrated source control (cvs)
+- Zope Support
+
+Boa 2.0
+- Database support
+  - DB Aware controls
+  - One possibility is hooking a db aware control
+    framework to the ZODB
+- C/C++ extension writing and possibly debugging support
+
+
+*
+Scriblings
+----------
+
+* Testing facilities, how should GUI classes be tested?
+   - Window scraping sucks!
+   - Look into PyUnit
+   - Strategies:
+     - Methods (as opposed to event methods) could be tested with doctest.py
+       another Tim Peters module :)
+       Maybe it can be extended to handle events as follows:
+       - List of events that can be posted and assertion of certain
+         control values after posting
+       I am not very optimistic about this route as none of my own GUI
+       objects seem testable in a few lines and usually depend on other
+       frames being open/initialised. Nevertheless this needs to be
+       pursued and at least those that are testable should be tested.
+
+* Code tools/shortcuts
+  * Expand creation params:
+    class MyClass(YourClass):
+        def __init__(self, param1, param2, ...):
+    to:
+    class MyClass(YourClass):
+        def __init__(self, param1, param2, ...):
+            YourClass.__init__(self, param1, param2, ...)
+            self.param1 = param1
+            self.param2 = param2
+            ...
+
+  * Window id registration:
+        wxID_*
+    to:
+    [wxID_*, ...] = map(lambda i: wxNewId(), range(n))
+
+  * Event creation:
+        EVT_*(self, id, self.OnEvtFunc)
+    to:
+        def OnEvtFunc(self, event):
+            |
+
+
+
+UML
+* Update attibutes in uml
+
+Look at Idle's class browser source parser and Idle extensions
+
+_Fundamental changes_
+
+Handle more than one class per source file
+
+Add inheritable components
+

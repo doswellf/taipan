@@ -529,7 +529,7 @@ class BaseExplorerSplitter(wx.SplitterWindow):
     def __init__(self, parent, modimages, editor, store,
           XList=ExplorerList, XTree=ExplorerTree):
         wx.SplitterWindow.__init__(self, parent, wxID_PFE,
-              style=wx.CLIP_CHILDREN | wx.SP_LIVE_UPDATE)# | wxNO_3D | wxSP_3D)
+              style=wx.CLIP_CHILDREN | wx.SP_LIVE_UPDATE)# | wxSP_3D)
 
         self.editor = editor
         self.store = store
